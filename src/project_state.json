@@ -1,0 +1,252 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Comprehensive scaffolding rental management system for Indonesian market with operations, accounting, and tax compliance features, designed for desktop use with fraud prevention controls",
+  "architectural_notes": [
+    "System must implement comprehensive audit logging for all financial transactions and data modifications",
+    "Multi-level approval workflows required for high-value transactions and master data changes",
+    "Indonesian tax compliance: PPN (VAT), PPh (Income Tax), and e-Faktur system integration",
+    "Immutable transaction records using blockchain backend (Motoko on Internet Computer)",
+    "Role-based access control with segregation of duties between operations, accounting, and admin",
+    "Desktop-first UI optimized for 1920x1080+ displays",
+    "Double-entry bookkeeping system with automatic journal entry generation",
+    "Real-time inventory tracking with RFID/barcode support for scaffolding items",
+    "Automated depreciation calculation for fixed assets per Indonesian accounting standards",
+    "Financial period lock mechanism to prevent backdated entries after period close"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Professional scaffolding equipment illustration for dashboard header (scaffolding-hero.dim_1200x300.png)\n- Icon set for equipment categories: frames, boards, pipes, clamps, accessories, 5 icons in consistent style (equipment-icons.dim_400x80.png)\n- Financial chart background with subtle Indonesian motif pattern (financial-bg.dim_800x600.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-customer-management-module-with-crud-operations-storing-company-name-npwp-tax-id-address-contact-person-phone-email-and-credit-limit",
+      "title": "Create customer management module with CRUD operations storing company name, NPWP (tax ID), address, contact person, phone, email, and credit limit",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-vendor-management-module-for-scaffolding-suppliers-with-company-details-npwp-bank-account-information-and-payment-terms",
+      "title": "Create vendor management module for scaffolding suppliers with company details, NPWP, bank account information, and payment terms",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-scaffolding-inventory-management-system-tracking-item-types-frames-boards-pipes-clamps-accessories-quantities-condition-status-new-good-fair-damaged-location-and-acquisition-cost",
+      "title": "Create scaffolding inventory management system tracking item types (frames, boards, pipes, clamps, accessories), quantities, condition status (new, good, fair, damaged), location, and acquisition cost",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-rental-order-management-system-with-booking-quotation-approval-delivery-scheduling-active-rental-tracking-and-return-processing-with-condition-inspection",
+      "title": "Create rental order management system with booking, quotation approval, delivery scheduling, active rental tracking, and return processing with condition inspection",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-invoicing-system-with-automatic-invoice-generation-from-rental-orders-payment-term-tracking-partial-payment-support-payment-status-monitoring-and-late-payment-alerts",
+      "title": "Create invoicing system with automatic invoice generation from rental orders, payment term tracking, partial payment support, payment status monitoring, and late payment alerts",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-indonesian-tax-compliance-module-handling-ppn-11-vat-pph-23-2-withholding-tax-tax-invoice-faktur-pajak-generation-with-sequential-numbering-and-monthly-tax-report-preparation",
+      "title": "Create Indonesian tax compliance module handling PPN (11% VAT), PPh 23 (2% withholding tax), tax invoice (faktur pajak) generation with sequential numbering, and monthly tax report preparation",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-double-entry-accounting-system-with-chart-of-accounts-for-rental-business-journal-entry-recording-general-ledger-accounts-receivable-accounts-payable-and-cash-bank-management",
+      "title": "Create double-entry accounting system with chart of accounts for rental business, journal entry recording, general ledger, accounts receivable, accounts payable, and cash/bank management",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-financial-reporting-module-generating-income-statement-profit-loss-balance-sheet-cash-flow-statement-trial-balance-and-indonesian-tax-reports-formatted-for-submission",
+      "title": "Create financial reporting module generating Income Statement (Profit & Loss), Balance Sheet, Cash Flow Statement, Trial Balance, and Indonesian tax reports formatted for submission",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-role-based-access-control-system-with-roles-super-admin-admin-accountant-operations-staff-sales-granular-permissions-per-module-and-approval-workflows-for-sensitive-operations-like-pricing-changes-credit-limit-increases-and-manual-journal-entries",
+      "title": "Create role-based access control system with roles (Super Admin, Admin, Accountant, Operations Staff, Sales), granular permissions per module, and approval workflows for sensitive operations like pricing changes, credit limit increases, and manual journal entries",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-financial-dashboard-with-key-metrics-including-total-revenue-outstanding-receivables-active-rentals-equipment-utilization-rate-overdue-payments-monthly-tax-obligations-and-profit-margin-with-graphical-visualizations",
+      "title": "Create financial dashboard with key metrics including total revenue, outstanding receivables, active rentals, equipment utilization rate, overdue payments, monthly tax obligations, and profit margin with graphical visualizations",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-data-validation-and-fraud-prevention-controls-including-duplicate-invoice-checking-negative-amount-prevention-date-range-validation-no-backdating-beyond-allowed-period-rental-period-overlap-detection-and-inventory-quantity-reconciliation",
+      "title": "Create data validation and fraud prevention controls including duplicate invoice checking, negative amount prevention, date range validation (no backdating beyond allowed period), rental period overlap detection, and inventory quantity reconciliation",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-desktop-optimized-responsive-ui-design-with-large-clickable-elements-keyboard-navigation-support-data-tables-with-sorting-and-filtering-form-validation-with-clear-error-messages-and-print-friendly-layouts-for-invoices-and-reports",
+      "title": "Implement desktop-optimized responsive UI design with large clickable elements, keyboard navigation support, data tables with sorting and filtering, form validation with clear error messages, and print-friendly layouts for invoices and reports",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-user-authentication-system-using-internet-identity-for-secure-login-with-user-session-management-and-automatic-logout-after-inactivity",
+      "title": "Create user authentication system using Internet Identity for secure login with user session management and automatic logout after inactivity",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-all-user-facing-text-labels-buttons-messages-and-report-headers-must-be-in-indonesian-bahasa-indonesia-while-maintaining-english-for-technical-code-and-variable-names",
+      "title": "All user-facing text, labels, buttons, messages, and report headers must be in Indonesian (Bahasa Indonesia) while maintaining English for technical code and variable names",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Customer and vendor management module",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Scaffolding inventory tracking system with item lifecycle management",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Rental order management with booking, delivery, and return tracking",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Pricing and quotation system with rate management",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Invoicing system with payment tracking and collections",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Indonesian tax compliance module (PPN, PPh, e-Faktur integration)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Full accounting system with general ledger, journal entries, and financial reports",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Audit trail and activity logging for fraud prevention",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Role-based access control with approval workflows",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Asset maintenance and depreciation tracking",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Financial reporting dashboard with Indonesian tax reports",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Desktop-optimized responsive UI design",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Create pricing and quotation system with rate cards for daily, weekly, and monthly rental rates per item type, volume discounts, and project-based custom pricing",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-22",
+      "summary": "Create asset depreciation tracking system for scaffolding equipment using straight-line method with useful life configuration per asset category and monthly depreciation calculation",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-23",
+      "summary": "Create comprehensive audit trail system logging all data modifications including user, timestamp, action type (create/update/delete), old values, new values, and IP address",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-25",
+      "summary": "Create maintenance and repair tracking module for scaffolding equipment with maintenance schedules, repair history, cost tracking, and equipment downtime recording",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-30",
+      "summary": "Create customer credit limit enforcement system that blocks new rental orders when customer exceeds credit limit based on outstanding invoices and pending orders",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Scaffolding Rental Management System",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

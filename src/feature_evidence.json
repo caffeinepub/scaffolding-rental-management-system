@@ -1,0 +1,297 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-customer-management-module-with-crud-operations-storing-company-name-npwp-tax-id-address-contact-person-phone-email-and-credit-limit",
+      "featureTitle": "Create customer management module with CRUD operations storing company name, NPWP (tax ID), address, contact person, phone, email, and credit limit",
+      "files": [
+        "frontend/src/components/CustomerForm.tsx",
+        "frontend/src/pages/CustomerManagement.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-vendor-management-module-for-scaffolding-suppliers-with-company-details-npwp-bank-account-information-and-payment-terms",
+      "featureTitle": "Create vendor management module for scaffolding suppliers with company details, NPWP, bank account information, and payment terms",
+      "files": [
+        "frontend/src/components/VendorForm.tsx",
+        "frontend/src/pages/VendorManagement.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-scaffolding-inventory-management-system-tracking-item-types-frames-boards-pipes-clamps-accessories-quantities-condition-status-new-good-fair-damaged-location-and-acquisition-cost",
+      "featureTitle": "Create scaffolding inventory management system tracking item types (frames, boards, pipes, clamps, accessories), quantities, condition status (new, good, fair, damaged), location, and acquisition cost",
+      "files": [
+        "frontend/src/components/InventoryForm.tsx",
+        "frontend/src/pages/InventoryManagement.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-rental-order-management-system-with-booking-quotation-approval-delivery-scheduling-active-rental-tracking-and-return-processing-with-condition-inspection",
+      "featureTitle": "Create rental order management system with booking, quotation approval, delivery scheduling, active rental tracking, and return processing with condition inspection",
+      "files": [
+        "frontend/src/components/RentalOrderForm.tsx",
+        "frontend/src/pages/RentalOrderManagement.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-invoicing-system-with-automatic-invoice-generation-from-rental-orders-payment-term-tracking-partial-payment-support-payment-status-monitoring-and-late-payment-alerts",
+      "featureTitle": "Create invoicing system with automatic invoice generation from rental orders, payment term tracking, partial payment support, payment status monitoring, and late payment alerts",
+      "files": [
+        "frontend/src/pages/InvoiceManagement.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-indonesian-tax-compliance-module-handling-ppn-11-vat-pph-23-2-withholding-tax-tax-invoice-faktur-pajak-generation-with-sequential-numbering-and-monthly-tax-report-preparation",
+      "featureTitle": "Create Indonesian tax compliance module handling PPN (11% VAT), PPh 23 (2% withholding tax), tax invoice (faktur pajak) generation with sequential numbering, and monthly tax report preparation",
+      "files": [
+        "frontend/src/pages/TaxCompliance.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-double-entry-accounting-system-with-chart-of-accounts-for-rental-business-journal-entry-recording-general-ledger-accounts-receivable-accounts-payable-and-cash-bank-management",
+      "featureTitle": "Create double-entry accounting system with chart of accounts for rental business, journal entry recording, general ledger, accounts receivable, accounts payable, and cash/bank management",
+      "files": [
+        "frontend/src/pages/Accounting.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-financial-reporting-module-generating-income-statement-profit-loss-balance-sheet-cash-flow-statement-trial-balance-and-indonesian-tax-reports-formatted-for-submission",
+      "featureTitle": "Create financial reporting module generating Income Statement (Profit & Loss), Balance Sheet, Cash Flow Statement, Trial Balance, and Indonesian tax reports formatted for submission",
+      "files": [
+        "frontend/src/pages/FinancialReports.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-role-based-access-control-system-with-roles-super-admin-admin-accountant-operations-staff-sales-granular-permissions-per-module-and-approval-workflows-for-sensitive-operations-like-pricing-changes-credit-limit-increases-and-manual-journal-entries",
+      "featureTitle": "Create role-based access control system with roles (Super Admin, Admin, Accountant, Operations Staff, Sales), granular permissions per module, and approval workflows for sensitive operations like pricing changes, credit limit increases, and manual journal entries",
+      "files": [
+        "frontend/src/hooks/useAuthorization.ts",
+        "frontend/src/pages/UserManagement.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-financial-dashboard-with-key-metrics-including-total-revenue-outstanding-receivables-active-rentals-equipment-utilization-rate-overdue-payments-monthly-tax-obligations-and-profit-margin-with-graphical-visualizations",
+      "featureTitle": "Create financial dashboard with key metrics including total revenue, outstanding receivables, active rentals, equipment utilization rate, overdue payments, monthly tax obligations, and profit margin with graphical visualizations",
+      "files": [
+        "frontend/src/pages/Dashboard.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-14"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-data-validation-and-fraud-prevention-controls-including-duplicate-invoice-checking-negative-amount-prevention-date-range-validation-no-backdating-beyond-allowed-period-rental-period-overlap-detection-and-inventory-quantity-reconciliation",
+      "featureTitle": "Create data validation and fraud prevention controls including duplicate invoice checking, negative amount prevention, date range validation (no backdating beyond allowed period), rental period overlap detection, and inventory quantity reconciliation",
+      "files": [
+        "frontend/src/utils/validation.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-desktop-optimized-responsive-ui-design-with-large-clickable-elements-keyboard-navigation-support-data-tables-with-sorting-and-filtering-form-validation-with-clear-error-messages-and-print-friendly-layouts-for-invoices-and-reports",
+      "featureTitle": "Implement desktop-optimized responsive UI design with large clickable elements, keyboard navigation support, data tables with sorting and filtering, form validation with clear error messages, and print-friendly layouts for invoices and reports",
+      "files": [
+        "frontend/src/components/DataTable.tsx",
+        "frontend/src/components/LoadingSpinner.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-16"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-user-authentication-system-using-internet-identity-for-secure-login-with-user-session-management-and-automatic-logout-after-inactivity",
+      "featureTitle": "Create user authentication system using Internet Identity for secure login with user session management and automatic logout after inactivity",
+      "files": [
+        "frontend/src/components/AuthGuard.tsx",
+        "frontend/src/components/LoginButton.tsx",
+        "frontend/src/components/ProfileSetupModal.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-17"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-all-user-facing-text-labels-buttons-messages-and-report-headers-must-be-in-indonesian-bahasa-indonesia-while-maintaining-english-for-technical-code-and-variable-names",
+      "featureTitle": "All user-facing text, labels, buttons, messages, and report headers must be in Indonesian (Bahasa Indonesia) while maintaining English for technical code and variable names",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/components/NavigationMenu.tsx",
+        "frontend/src/utils/formatters.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-19"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

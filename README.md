@@ -1,2 +1,3 @@
-# scaffolding-rental-management-system
-Exported from Caffeine project: Scaffolding Rental Management System
+## Scaffolding Rental Management System
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

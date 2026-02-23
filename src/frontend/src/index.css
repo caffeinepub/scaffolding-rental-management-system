@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.5rem;
+        
+        /* Light mode - Professional business theme with warm accents */
+        --background: 0.98 0 0;
+        --foreground: 0.15 0 0;
+        --card: 1 0 0;
+        --card-foreground: 0.15 0 0;
+        --popover: 1 0 0;
+        --popover-foreground: 0.15 0 0;
+        
+        /* Primary: Deep professional blue */
+        --primary: 0.35 0.15 250;
+        --primary-foreground: 0.98 0 0;
+        
+        /* Secondary: Warm gray */
+        --secondary: 0.92 0.01 60;
+        --secondary-foreground: 0.15 0 0;
+        
+        /* Muted: Light gray */
+        --muted: 0.95 0.005 60;
+        --muted-foreground: 0.45 0.01 60;
+        
+        /* Accent: Warm orange for highlights */
+        --accent: 0.75 0.15 40;
+        --accent-foreground: 0.15 0 0;
+        
+        /* Destructive: Professional red */
+        --destructive: 0.55 0.22 25;
+        --destructive-foreground: 0.98 0 0;
+        
+        /* Borders and inputs */
+        --border: 0.88 0.01 60;
+        --input: 0.88 0.01 60;
+        --ring: 0.35 0.15 250;
+        
+        /* Chart colors - professional palette */
+        --chart-1: 0.55 0.18 250;
+        --chart-2: 0.65 0.16 160;
+        --chart-3: 0.70 0.14 40;
+        --chart-4: 0.60 0.20 300;
+        --chart-5: 0.50 0.22 20;
+        
+        /* Sidebar */
+        --sidebar: 0.98 0 0;
+        --sidebar-foreground: 0.15 0 0;
+        --sidebar-primary: 0.35 0.15 250;
+        --sidebar-primary-foreground: 0.98 0 0;
+        --sidebar-accent: 0.95 0.005 60;
+        --sidebar-accent-foreground: 0.15 0 0;
+        --sidebar-border: 0.88 0.01 60;
+        --sidebar-ring: 0.35 0.15 250;
+    }
+
+    .dark {
+        /* Dark mode - Professional dark theme */
+        --background: 0.12 0 0;
+        --foreground: 0.95 0 0;
+        --card: 0.16 0 0;
+        --card-foreground: 0.95 0 0;
+        --popover: 0.14 0 0;
+        --popover-foreground: 0.95 0 0;
+        
+        /* Primary: Bright blue for dark mode */
+        --primary: 0.65 0.18 250;
+        --primary-foreground: 0.12 0 0;
+        
+        /* Secondary: Medium gray */
+        --secondary: 0.25 0.01 60;
+        --secondary-foreground: 0.95 0 0;
+        
+        /* Muted: Dark gray */
+        --muted: 0.20 0.005 60;
+        --muted-foreground: 0.60 0.01 60;
+        
+        /* Accent: Warm orange */
+        --accent: 0.70 0.16 40;
+        --accent-foreground: 0.12 0 0;
+        
+        /* Destructive: Bright red for visibility */
+        --destructive: 0.60 0.24 25;
+        --destructive-foreground: 0.95 0 0;
+        
+        /* Borders and inputs */
+        --border: 0.25 0.01 60;
+        --input: 0.25 0.01 60;
+        --ring: 0.65 0.18 250;
+        
+        /* Chart colors - vibrant for dark mode */
+        --chart-1: 0.65 0.20 250;
+        --chart-2: 0.70 0.18 160;
+        --chart-3: 0.75 0.16 40;
+        --chart-4: 0.65 0.22 300;
+        --chart-5: 0.60 0.24 20;
+        
+        /* Sidebar */
+        --sidebar: 0.16 0 0;
+        --sidebar-foreground: 0.95 0 0;
+        --sidebar-primary: 0.65 0.18 250;
+        --sidebar-primary-foreground: 0.12 0 0;
+        --sidebar-accent: 0.20 0.005 60;
+        --sidebar-accent-foreground: 0.95 0 0;
+        --sidebar-border: 0.25 0.01 60;
+        --sidebar-ring: 0.65 0.18 250;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+/* Print styles for invoices and reports */
+@media print {
+    body {
+        @apply bg-white text-black;
+    }
+    
+    header, footer, nav, aside {
+        display: none !important;
+    }
+    
+    main {
+        @apply p-0 m-0;
+    }
+    
+    .no-print {
+        display: none !important;
+    }
+    
+    @page {
+        margin: 2cm;
+    }
+}
