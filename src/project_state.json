@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
+  "projectStateVersion": 7,
   "summary": "Comprehensive scaffolding rental management system for Indonesian market with operations, accounting, and tax compliance features, designed for desktop use with fraud prevention controls",
   "architectural_notes": [
     "System must implement comprehensive audit logging for all financial transactions and data modifications",
@@ -14,9 +14,10 @@
     "Automated depreciation calculation for fixed assets per Indonesian accounting standards",
     "Financial period lock mechanism to prevent backdated entries after period close"
   ],
-  "known_issues": [],
-  "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Professional scaffolding equipment illustration for dashboard header (scaffolding-hero.dim_1200x300.png)\n- Icon set for equipment categories: frames, boards, pipes, clamps, accessories, 5 icons in consistent style (equipment-icons.dim_400x80.png)\n- Financial chart background with subtle Indonesian motif pattern (financial-bg.dim_800x600.png)",
+  "known_issues": [
+    "Application showing continuous loading state without displaying the login button - authentication page stuck in loading loop"
+  ],
+  "isFixRequest": true,
   "existing_features": [
     {
       "id": "feature-create-customer-management-module-with-crud-operations-storing-company-name-npwp-tax-id-address-contact-person-phone-email-and-credit-limit",
@@ -127,6 +128,46 @@
       "title": "All user-facing text, labels, buttons, messages, and report headers must be in Indonesian (Bahasa Indonesia) while maintaining English for technical code and variable names",
       "reqIds": [
         "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-prominent-clearly-visible-login-button-to-the-main-application-landing-page-that-is-displayed-before-authentication-ensuring-it-stands-out-against-the-background-and-is-easily-clickable",
+      "title": "Add a prominent, clearly visible login button to the main application landing page that is displayed before authentication, ensuring it stands out against the background and is easily clickable",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-login-button-component-from-loginbutton-tsx-is-properly-integrated-and-rendered-on-the-unauthenticated-landing-page-view",
+      "title": "Ensure the login button component from LoginButton.tsx is properly integrated and rendered on the unauthenticated landing page view",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-authentication-error-state-in-authguard-tsx-that-displays-terjadi-kesalahan-an-error-occurred-message-instead-of-the-login-button-when-the-application-loads",
+      "title": "Fix the authentication error state in AuthGuard.tsx that displays 'Terjadi kesalahan!' (An error occurred!) message instead of the login button when the application loads",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-proper-error-boundaries-and-fallback-ui-to-gracefully-handle-authentication-initialization-failures-without-blocking-the-login-interface",
+      "title": "Add proper error boundaries and fallback UI to gracefully handle authentication initialization failures without blocking the login interface",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-improve-the-authentication-initialization-logic-in-useinternetidentity-ts-to-handle-edge-cases-where-the-auth-client-may-not-initialize-properly-on-first-load",
+      "title": "Improve the authentication initialization logic in useInternetIdentity.ts to handle edge cases where the auth client may not initialize properly on first load",
+      "reqIds": [
+        "REQ-24"
       ],
       "version": 1
     }

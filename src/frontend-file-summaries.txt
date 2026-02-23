@@ -2,8 +2,8 @@
   "frontend/src/App.tsx": "Main application component with TanStack Router setup, defining all routes for the scaffolding rental management system with authentication guard and theme provider.",
   "frontend/src/components/Layout.tsx": "Application layout component with header, navigation menu, main content area, and footer with caffeine.ai attribution.",
   "frontend/src/components/NavigationMenu.tsx": "Sidebar navigation menu with role-based visibility, organized into operational, financial, tax, and settings sections.",
-  "frontend/src/components/LoginButton.tsx": "Internet Identity login/logout button component with loading states and error handling.",
-  "frontend/src/components/AuthGuard.tsx": "Authentication guard wrapper that ensures users are logged in and have completed profile setup before accessing the application.",
+  "frontend/src/components/LoginButton.tsx": "Login/logout button component with proper disabled states during initialization and login processes, simplified error handling that relies on the hook's improved error management, and clear loading indicators for both initialization and login states.",
+  "frontend/src/components/AuthGuard.tsx": "Authentication guard that displays a welcome card with login button for unauthenticated users, shows optional warning message if initialization errors occur but still allows login attempts, and ensures authenticated users complete profile setup.",
   "frontend/src/components/ProfileSetupModal.tsx": "Modal dialog for first-time user profile setup, collecting name and email information.",
   "frontend/src/components/LoadingSpinner.tsx": "Reusable loading spinner component with customizable text for async operations.",
   "frontend/src/components/DataTable.tsx": "Generic data table component with search, pagination, sorting, and customizable columns for displaying tabular data.",
@@ -26,5 +26,6 @@
   "frontend/src/pages/FinancialReports.tsx": "Placeholder page for financial reporting module with background image (requires additional backend).",
   "frontend/src/pages/UserManagement.tsx": "User management page displaying current user profile and placeholder for role management features.",
   "frontend/src/index.css": "Global styles with professional business color scheme using OKLCH, including light/dark modes and print media queries.",
-  "frontend/tailwind.config.js": "Tailwind configuration with custom fonts (Inter, JetBrains Mono), extended color palette, shadows, and professional design tokens."
+  "frontend/tailwind.config.js": "Tailwind configuration with custom fonts (Inter, JetBrains Mono), extended color palette, shadows, and professional design tokens.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Internet Identity authentication hook with robust initialization logic including exponential backoff retry mechanism (max 3 attempts), graceful error handling that logs issues to console without blocking the login interface, and proper state management to allow users to attempt login even after initialization failures."
 }

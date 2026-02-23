@@ -1,364 +1,75 @@
 {
   "kind": "build_request",
-  "title": "Build comprehensive scaffolding rental management system with Indonesian tax compliance",
-  "projectName": "Scaffolding Manager",
-  "priority": "normal",
+  "title": "Fix authentication error showing 'Terjadi kesalahan!' instead of login button",
+  "projectName": "Scaffolding Rental",
+  "priority": "high",
   "requirements": [
     {
-      "id": "REQ-1",
-      "text": "Create customer management module with CRUD operations storing company name, NPWP (tax ID), address, contact person, phone, email, and credit limit",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-10"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Admin can add, edit, view, and deactivate customers",
-        "Customer records include complete business information and tax identification",
-        "NPWP format validation for Indonesian tax numbers",
-        "Credit limit tracking per customer"
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "text": "Create vendor management module for scaffolding suppliers with company details, NPWP, bank account information, and payment terms",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-10"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Admin can manage vendor records with complete business information",
-        "Vendor payment terms and bank details stored securely",
-        "NPWP validation for tax compliance"
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "text": "Create scaffolding inventory management system tracking item types (frames, boards, pipes, clamps, accessories), quantities, condition status (new, good, fair, damaged), location, and acquisition cost",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-10"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Inventory items categorized by type with unique identifiers",
-        "Real-time quantity tracking with condition status",
-        "Location tracking for each inventory item",
-        "Historical cost tracking for depreciation calculations"
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "text": "Create rental order management system with booking, quotation approval, delivery scheduling, active rental tracking, and return processing with condition inspection",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-10"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Complete rental lifecycle from quotation to return",
-        "Delivery and pickup scheduling with date/time tracking",
-        "Condition inspection on delivery and return with photo documentation capability",
-        "Damage assessment and charge calculation on returns",
-        "Order status tracking (quoted, approved, delivered, active, returned, completed)"
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "text": "Create pricing and quotation system with rate cards for daily, weekly, and monthly rental rates per item type, volume discounts, and project-based custom pricing",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-10"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Flexible rate card management with time-based pricing tiers",
-        "Automatic quotation generation based on requested items and duration",
-        "Volume discount rules configuration",
-        "Custom pricing approval workflow for special projects",
-        "Quotation versioning and approval status tracking"
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "text": "Create invoicing system with automatic invoice generation from rental orders, payment term tracking, partial payment support, payment status monitoring, and late payment alerts",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-10"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Automatic invoice creation when rental order is delivered",
-        "Invoice includes rental period, item details, rates, and total amount",
-        "Payment tracking with partial payment recording",
-        "Overdue invoice identification with aging report",
-        "Payment method recording (cash, transfer, check)"
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "text": "Create Indonesian tax compliance module handling PPN (11% VAT), PPh 23 (2% withholding tax), tax invoice (faktur pajak) generation with sequential numbering, and monthly tax report preparation",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-10"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Automatic PPN calculation at 11% on all rental invoices",
-        "PPh 23 withholding tax calculation where applicable",
-        "Sequential tax invoice numbering according to Indonesian regulations",
-        "Monthly PPN summary report (SPT Masa PPN)",
-        "Tax invoice data export for e-Faktur system integration",
-        "Proper tax rounding and calculation according to Indonesian tax law"
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "text": "Create double-entry accounting system with chart of accounts for rental business, journal entry recording, general ledger, accounts receivable, accounts payable, and cash/bank management",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-10"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Pre-configured chart of accounts for scaffolding rental business",
-        "Automatic journal entries from rental transactions",
-        "Manual journal entry capability with approval workflow",
-        "General ledger with account balances and transaction history",
-        "Accounts receivable aging report by customer",
-        "Accounts payable tracking by vendor",
-        "Bank reconciliation functionality"
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "text": "Create financial reporting module generating Income Statement (Profit & Loss), Balance Sheet, Cash Flow Statement, Trial Balance, and Indonesian tax reports formatted for submission",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-10"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Monthly and yearly Income Statement with rental revenue breakdown",
-        "Balance Sheet with assets (inventory, receivables) and liabilities",
-        "Cash Flow Statement showing operating, investing, and financing activities",
-        "Trial Balance for period-end verification",
-        "SPT Masa PPN format for monthly VAT reporting",
-        "Annual tax report preparation data",
-        "Export to PDF and Excel formats"
-      ]
-    },
-    {
-      "id": "REQ-10",
-      "text": "Create asset depreciation tracking system for scaffolding equipment using straight-line method with useful life configuration per asset category and monthly depreciation calculation",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-10"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Asset registration with acquisition date and cost",
-        "Configurable useful life per asset category (e.g., 5 years for frames, 3 years for boards)",
-        "Automatic monthly depreciation calculation",
-        "Accumulated depreciation tracking",
-        "Book value reporting per asset",
-        "Depreciation schedule and depreciation expense posting to accounting"
-      ]
-    },
-    {
-      "id": "REQ-11",
-      "text": "Create comprehensive audit trail system logging all data modifications including user, timestamp, action type (create/update/delete), old values, new values, and IP address",
-      "target": "backend",
-      "source": {
-        "messageIds": [
-          "msg-10"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Every database operation logged with complete details",
-        "Audit log includes user identity, timestamp, action, and data changes",
-        "Audit trail is immutable (no deletion capability)",
-        "Searchable audit log by date range, user, entity type, and action",
-        "Tamper detection for audit log integrity"
-      ]
-    },
-    {
-      "id": "REQ-12",
-      "text": "Create role-based access control system with roles (Super Admin, Admin, Accountant, Operations Staff, Sales), granular permissions per module, and approval workflows for sensitive operations like pricing changes, credit limit increases, and manual journal entries",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-10"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Predefined roles with appropriate permission sets",
-        "Super Admin can manage users and assign roles",
-        "Operations staff can manage rentals but not view financial data",
-        "Accountants can access financial modules but not modify pricing",
-        "Multi-level approval workflow for high-risk transactions",
-        "Approval history tracking with approver identity and timestamp"
-      ]
-    },
-    {
-      "id": "REQ-13",
-      "text": "Create maintenance and repair tracking module for scaffolding equipment with maintenance schedules, repair history, cost tracking, and equipment downtime recording",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-10"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Scheduled maintenance tracking per equipment category",
-        "Repair work order creation with description and cost",
-        "Maintenance cost allocation to equipment asset",
-        "Equipment availability status based on maintenance schedule",
-        "Historical repair records per equipment item"
-      ]
-    },
-    {
-      "id": "REQ-14",
-      "text": "Create financial dashboard with key metrics including total revenue, outstanding receivables, active rentals, equipment utilization rate, overdue payments, monthly tax obligations, and profit margin with graphical visualizations",
+      "id": "REQ-22",
+      "text": "Fix the authentication error state in AuthGuard.tsx that displays 'Terjadi kesalahan!' (An error occurred!) message instead of the login button when the application loads",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-10"
+          "msg-user-final"
+        ],
+        "quotes": [
+          "mana ?? jangan bodohin saya"
         ]
       },
       "acceptanceCriteria": [
-        "Real-time KPI display on dashboard homepage",
-        "Revenue trend chart showing monthly performance",
-        "Aging receivables breakdown by customer",
-        "Equipment utilization percentage with drill-down capability",
-        "Tax obligation summary for current period",
-        "Profit margin analysis by rental project"
+        "The 'Terjadi kesalahan!' error message is no longer displayed on the landing page",
+        "The login button appears immediately when the application loads for unauthenticated users",
+        "Error handling in useInternetIdentity hook is improved to prevent false error states during initialization",
+        "The authentication flow completes successfully without showing error messages"
       ]
     },
     {
-      "id": "REQ-15",
-      "text": "Create data validation and fraud prevention controls including duplicate invoice checking, negative amount prevention, date range validation (no backdating beyond allowed period), rental period overlap detection, and inventory quantity reconciliation",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-10"
-        ]
-      },
-      "acceptanceCriteria": [
-        "System prevents duplicate invoice numbers",
-        "Negative amounts blocked in all financial transactions",
-        "Rental dates validated against inventory availability",
-        "Backdating limited to configurable grace period (e.g., 3 days)",
-        "Daily inventory reconciliation with variance reporting",
-        "Rental quantity cannot exceed available inventory"
-      ]
-    },
-    {
-      "id": "REQ-16",
-      "text": "Implement desktop-optimized responsive UI design with large clickable elements, keyboard navigation support, data tables with sorting and filtering, form validation with clear error messages, and print-friendly layouts for invoices and reports",
+      "id": "REQ-23",
+      "text": "Add proper error boundaries and fallback UI to gracefully handle authentication initialization failures without blocking the login interface",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-10"
+          "msg-user-final"
         ]
       },
       "acceptanceCriteria": [
-        "UI optimized for desktop screens (1366px and larger)",
-        "Keyboard shortcuts for common operations",
-        "Data tables with column sorting, filtering, and pagination",
-        "Inline editing capabilities for quick updates",
-        "Print stylesheets for invoices, tax forms, and financial reports",
-        "Form validation with real-time feedback",
-        "Loading states for all async operations"
+        "Authentication errors are logged to console for debugging but do not prevent the login button from appearing",
+        "If Internet Identity initialization fails, a clear error message is shown with a retry button",
+        "The application gracefully degrades and allows login attempts even if initial auth checks fail",
+        "Loading states are properly managed to prevent infinite loading or premature error displays"
       ]
     },
     {
-      "id": "REQ-17",
-      "text": "Create user authentication system using Internet Identity for secure login with user session management and automatic logout after inactivity",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-10"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Users authenticate via Internet Identity",
-        "Session persistence across page refreshes",
-        "Automatic logout after 30 minutes of inactivity",
-        "Secure session token management",
-        "Login/logout audit trail"
-      ]
-    },
-    {
-      "id": "REQ-18",
-      "text": "Create customer credit limit enforcement system that blocks new rental orders when customer exceeds credit limit based on outstanding invoices and pending orders",
-      "target": "backend",
-      "source": {
-        "messageIds": [
-          "msg-10"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Real-time credit limit checking before order approval",
-        "Outstanding balance calculation including unpaid invoices and pending deliveries",
-        "Warning alerts when customer approaches credit limit (e.g., 80%)",
-        "Order blocking when credit limit exceeded",
-        "Credit limit override capability with approval workflow"
-      ]
-    },
-    {
-      "id": "REQ-19",
-      "text": "All user-facing text, labels, buttons, messages, and report headers must be in Indonesian (Bahasa Indonesia) while maintaining English for technical code and variable names",
+      "id": "REQ-24",
+      "text": "Improve the authentication initialization logic in useInternetIdentity.ts to handle edge cases where the auth client may not initialize properly on first load",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-10"
+          "msg-user-final"
         ]
       },
       "acceptanceCriteria": [
-        "All UI text displayed in Indonesian",
-        "Error messages in Indonesian",
-        "Report titles and column headers in Indonesian",
-        "Button labels and navigation menus in Indonesian",
-        "Form field labels in Indonesian"
+        "Authentication client initialization includes retry logic with exponential backoff",
+        "Race conditions between auth initialization and component mounting are eliminated",
+        "The hook properly differentiates between 'not yet initialized', 'initializing', 'ready', and 'error' states",
+        "Session restoration attempts do not block the login interface from appearing"
       ]
     }
   ],
   "constraints": [
-    "Must use single-actor architecture for Motoko backend",
-    "Must comply with Indonesian tax regulations (PPN 11%, PPh 23 2%, e-Faktur format)",
-    "Must maintain complete audit trail for all financial transactions",
-    "Must prevent backdating beyond configurable grace period",
-    "Must enforce double-entry accounting principles",
-    "UI must be optimized for desktop usage only"
+    "Do not modify the Internet Identity integration mechanism itself",
+    "Maintain compatibility with existing authentication flow and session management",
+    "Keep all user-facing error messages in Indonesian (Bahasa Indonesia)",
+    "Do not change the LoginButton component structure"
   ],
   "nonGoals": [
-    "Mobile or tablet responsive design",
-    "Real-time collaboration features",
-    "Third-party accounting software integration",
-    "Automatic e-Faktur submission (only data export)",
-    "Multi-company or multi-branch support",
-    "Payroll management",
-    "SMS or email notifications",
-    "Offline mode support"
+    "Replacing Internet Identity with another authentication provider",
+    "Adding email/password authentication",
+    "Implementing social media login options",
+    "Changing the visual design of the login interface"
   ],
   "imageRequirements": {
-    "required": [
-      "Professional scaffolding equipment illustration for dashboard header (scaffolding-hero.dim_1200x300.png)",
-      "Icon set for equipment categories: frames, boards, pipes, clamps, accessories, 5 icons in consistent style (equipment-icons.dim_400x80.png)",
-      "Financial chart background with subtle Indonesian motif pattern (financial-bg.dim_800x600.png)"
-    ],
+    "required": [],
     "edits": []
   }
 }

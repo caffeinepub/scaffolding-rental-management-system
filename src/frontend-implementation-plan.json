@@ -1,563 +1,71 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Scaffolding Manager - Frontend Implementation Plan",
+  "title": "Fix Authentication Error State and Initialization Logic",
   "requirements": [
     {
-      "id": "REQ-1",
-      "summary": "Create customer management module UI with CRUD operations for Indonesian business data",
+      "id": "REQ-22",
+      "summary": "Fix the authentication error state in AuthGuard.tsx that displays 'Terjadi kesalahan!' message instead of the login button when the application loads",
       "acceptanceCriteria": [
-        "Admin can add, edit, view, and deactivate customers",
-        "Customer records include complete business information and tax identification",
-        "NPWP format validation for Indonesian tax numbers",
-        "Credit limit tracking per customer"
+        "The 'Terjadi kesalahan!' error message is no longer displayed on the landing page",
+        "The login button appears immediately when the application loads for unauthenticated users",
+        "Error handling in useInternetIdentity hook is improved to prevent false error states during initialization",
+        "The authentication flow completes successfully without showing error messages"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/CustomerManagement.tsx",
-          "operation": "create",
-          "description": "Create customer management page with data table showing company name, NPWP, contact person, credit limit. Include add/edit/deactivate buttons. Wire to App.tsx router. Use authorization component to restrict to admin users. Display all UI text in Indonesian."
-        },
-        {
-          "path": "frontend/src/components/CustomerForm.tsx",
-          "operation": "create",
-          "description": "Create customer form component with fields for company name, NPWP (with Indonesian format validation), address, contact person, phone, email, credit limit. Include Indonesian validation messages. Call backend addCustomer/updateCustomer methods."
-        },
-        {
-          "path": "frontend/src/hooks/useCustomers.ts",
-          "operation": "create",
-          "description": "Create React Query hooks for customer CRUD operations: useGetCustomers, useGetCustomer, useAddCustomer, useUpdateCustomer, useDeleteCustomer. Use backend methods from backend interface."
-        }
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "summary": "Create vendor management module UI for scaffolding suppliers",
-      "acceptanceCriteria": [
-        "Admin can manage vendor records with complete business information",
-        "Vendor payment terms and bank details stored securely",
-        "NPWP validation for tax compliance"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/VendorManagement.tsx",
-          "operation": "create",
-          "description": "Create vendor management page with data table showing vendor details. Include add/edit/delete buttons. Wire to App.tsx router. Use authorization component to restrict to admin users. Display all UI text in Indonesian."
-        },
-        {
-          "path": "frontend/src/components/VendorForm.tsx",
-          "operation": "create",
-          "description": "Create vendor form component with fields for company name, NPWP (with validation), bank account, payment terms, contact details. Include Indonesian labels and validation messages. Call backend addVendor/updateVendor methods."
-        },
-        {
-          "path": "frontend/src/hooks/useVendors.ts",
-          "operation": "create",
-          "description": "Create React Query hooks for vendor CRUD operations: useGetVendors, useGetVendor, useAddVendor, useUpdateVendor, useDeleteVendor. Use backend methods from backend interface."
-        }
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "summary": "Create scaffolding inventory management UI with item tracking",
-      "acceptanceCriteria": [
-        "Inventory items categorized by type with unique identifiers",
-        "Real-time quantity tracking with condition status",
-        "Location tracking for each inventory item",
-        "Historical cost tracking for depreciation calculations"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/InventoryManagement.tsx",
-          "operation": "create",
-          "description": "Create inventory management page with data table showing itemId, itemType (Frame/Board/Pipe/Clamp/Accessory), quantity, condition (New/Good/Fair/Damaged), location, acquisition cost. Include add/edit/delete buttons. Wire to App.tsx router. Use authorization component. Display equipment category icons from generated image frontend/public/assets/generated/equipment-icons.dim_400x80.png. All text in Indonesian."
-        },
-        {
-          "path": "frontend/src/components/InventoryForm.tsx",
-          "operation": "create",
-          "description": "Create inventory form component with fields for item type (dropdown with Frame/Board/Pipe/Clamp/Accessory), quantity, condition status (dropdown), location, acquisition cost. Include Indonesian labels. Call backend addInventoryItem/updateInventoryItem methods."
-        },
-        {
-          "path": "frontend/src/hooks/useInventory.ts",
-          "operation": "create",
-          "description": "Create React Query hooks for inventory CRUD operations: useGetInventoryItems, useGetInventoryItem, useAddInventoryItem, useUpdateInventoryItem, useDeleteInventoryItem. Use backend methods from backend interface."
-        }
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "summary": "Create rental order management UI with lifecycle tracking",
-      "acceptanceCriteria": [
-        "Complete rental lifecycle from quotation to return",
-        "Delivery and pickup scheduling with date/time tracking",
-        "Condition inspection on delivery and return with photo documentation capability",
-        "Damage assessment and charge calculation on returns",
-        "Order status tracking (quoted, approved, delivered, active, returned, completed)"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/RentalOrderManagement.tsx",
-          "operation": "create",
-          "description": "Create rental order management page with data table showing orderId, customerId, item list, start/end dates, status (Booked/QuotationApproved/Delivered/Active/Returned). Include create/edit buttons and status filter. Wire to App.tsx router. Use authorization component. Use blob-storage component for condition inspection photo uploads. All text in Indonesian."
-        },
-        {
-          "path": "frontend/src/components/RentalOrderForm.tsx",
-          "operation": "create",
-          "description": "Create rental order form with customer selection, item selection (multi-select from inventory), date pickers for start/end dates, status dropdown. Include photo upload capability using blob-storage component's ExternalBlob.fromBytes with upload progress tracking. Call backend createOrder/updateOrder methods. Indonesian labels."
-        },
-        {
-          "path": "frontend/src/hooks/useRentalOrders.ts",
-          "operation": "create",
-          "description": "Create React Query hooks for rental order operations: useGetAllOrders, useGetOrder, useCreateOrder, useUpdateOrder, useDeleteOrder. Use backend methods from backend interface."
-        }
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "summary": "Create pricing and quotation system UI",
-      "acceptanceCriteria": [
-        "Flexible rate card management with time-based pricing tiers",
-        "Automatic quotation generation based on requested items and duration",
-        "Volume discount rules configuration",
-        "Custom pricing approval workflow for special projects",
-        "Quotation versioning and approval status tracking"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/PricingManagement.tsx",
-          "operation": "create",
-          "description": "Create pricing management page with rate card editor showing daily/weekly/monthly rates per item type. Include volume discount configuration UI. Wire to App.tsx router. Use authorization component to restrict to admin users. All text in Indonesian."
-        },
-        {
-          "path": "frontend/src/components/QuotationGenerator.tsx",
-          "operation": "create",
-          "description": "Create quotation generator component with item selection, duration input, automatic total calculation with rate card and volume discount application. Show quotation preview with version tracking. Include approval workflow UI. Indonesian labels and formatting."
-        },
-        {
-          "path": "frontend/src/hooks/usePricing.ts",
-          "operation": "create",
-          "description": "Create React Query hooks for pricing operations: useGetRateCards, useUpdateRateCard, useGenerateQuotation, useApproveQuotation. Connect to backend capabilities for pricing and quotation management."
-        }
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "summary": "Create invoicing system UI with payment tracking",
-      "acceptanceCriteria": [
-        "Automatic invoice creation when rental order is delivered",
-        "Invoice includes rental period, item details, rates, and total amount",
-        "Payment tracking with partial payment recording",
-        "Overdue invoice identification with aging report",
-        "Payment method recording (cash, transfer, check)"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/InvoiceManagement.tsx",
-          "operation": "create",
-          "description": "Create invoice management page with data table showing invoice number, customer, amount, payment status, due date, overdue indicator. Include payment recording and aging report views. Wire to App.tsx router. Use authorization component. All text in Indonesian."
-        },
-        {
-          "path": "frontend/src/components/InvoiceForm.tsx",
-          "operation": "create",
-          "description": "Create invoice form component showing rental order details, line items, rates, subtotal, tax calculations, total. Include print-friendly layout. Indonesian labels and number formatting."
-        },
-        {
-          "path": "frontend/src/components/PaymentRecorder.tsx",
-          "operation": "create",
-          "description": "Create payment recording component with payment amount input, payment method dropdown (cash/transfer/check), payment date picker. Support partial payments with running balance display. Indonesian labels."
-        },
-        {
-          "path": "frontend/src/hooks/useInvoices.ts",
-          "operation": "create",
-          "description": "Create React Query hooks for invoice operations: useGetInvoices, useGetInvoice, useRecordPayment, useGetOverdueInvoices, useGetAgingReport. Connect to backend invoice and payment tracking capabilities."
-        }
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "summary": "Create Indonesian tax compliance UI module",
-      "acceptanceCriteria": [
-        "Automatic PPN calculation at 11% on all rental invoices",
-        "PPh 23 withholding tax calculation where applicable",
-        "Sequential tax invoice numbering according to Indonesian regulations",
-        "Monthly PPN summary report (SPT Masa PPN)",
-        "Tax invoice data export for e-Faktur system integration",
-        "Proper tax rounding and calculation according to Indonesian tax law"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/TaxCompliance.tsx",
-          "operation": "create",
-          "description": "Create tax compliance page showing PPN (11%) and PPh 23 (2%) calculations, tax invoice list with sequential numbering, monthly PPN summary (SPT Masa PPN format). Include e-Faktur export button. Wire to App.tsx router. Use authorization component to restrict to accountant/admin. All text in Indonesian including tax terminology."
-        },
-        {
-          "path": "frontend/src/components/TaxInvoiceGenerator.tsx",
-          "operation": "create",
-          "description": "Create tax invoice (faktur pajak) generator component with Indonesian tax invoice format, sequential numbering display, PPN calculation breakdown, print layout. Indonesian labels and tax format compliance."
-        },
-        {
-          "path": "frontend/src/components/SPTMasaPPNReport.tsx",
-          "operation": "create",
-          "description": "Create SPT Masa PPN report component showing monthly PPN summary in Indonesian tax reporting format. Include export to PDF capability. Indonesian headings and format per Indonesian tax regulations."
-        },
-        {
-          "path": "frontend/src/hooks/useTaxCompliance.ts",
-          "operation": "create",
-          "description": "Create React Query hooks for tax operations: useGetTaxInvoices, useGenerateTaxInvoice, useGetPPNSummary, useExportEFakturData. Connect to backend tax calculation and reporting capabilities."
-        }
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "summary": "Create accounting system UI with double-entry bookkeeping",
-      "acceptanceCriteria": [
-        "Pre-configured chart of accounts for scaffolding rental business",
-        "Automatic journal entries from rental transactions",
-        "Manual journal entry capability with approval workflow",
-        "General ledger with account balances and transaction history",
-        "Accounts receivable aging report by customer",
-        "Accounts payable tracking by vendor",
-        "Bank reconciliation functionality"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/Accounting.tsx",
-          "operation": "create",
-          "description": "Create accounting page with navigation to chart of accounts, journal entries, general ledger, AR/AP modules, and bank reconciliation. Wire to App.tsx router. Use authorization component to restrict to accountant/admin. Use generated image frontend/public/assets/generated/financial-bg.dim_800x600.png as subtle background. All text in Indonesian."
-        },
-        {
-          "path": "frontend/src/components/ChartOfAccounts.tsx",
-          "operation": "create",
-          "description": "Create chart of accounts component showing account hierarchy for scaffolding rental business (assets, liabilities, equity, revenue, expenses). Display account codes, names, balances. Indonesian account names and categories."
-        },
-        {
-          "path": "frontend/src/components/JournalEntryForm.tsx",
-          "operation": "create",
-          "description": "Create journal entry form with debit/credit line items, account selection, amount inputs, description, date picker. Include double-entry validation (debits = credits). Support approval workflow UI for manual entries. Indonesian labels and accounting terminology."
-        },
-        {
-          "path": "frontend/src/components/GeneralLedger.tsx",
-          "operation": "create",
-          "description": "Create general ledger component showing account transaction history with running balances, date range filter, account filter. Indonesian column headers and labels."
-        },
-        {
-          "path": "frontend/src/hooks/useAccounting.ts",
-          "operation": "create",
-          "description": "Create React Query hooks for accounting operations: useGetChartOfAccounts, useGetJournalEntries, useCreateJournalEntry, useGetGeneralLedger, useGetARAgingReport, useGetAPReport. Connect to backend accounting capabilities."
-        }
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "summary": "Create financial reporting UI module",
-      "acceptanceCriteria": [
-        "Monthly and yearly Income Statement with rental revenue breakdown",
-        "Balance Sheet with assets (inventory, receivables) and liabilities",
-        "Cash Flow Statement showing operating, investing, and financing activities",
-        "Trial Balance for period-end verification",
-        "SPT Masa PPN format for monthly VAT reporting",
-        "Annual tax report preparation data",
-        "Export to PDF and Excel formats"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/FinancialReports.tsx",
-          "operation": "create",
-          "description": "Create financial reports page with report type selector (Income Statement/Balance Sheet/Cash Flow/Trial Balance/Tax Reports), period selector (monthly/yearly), export buttons (PDF/Excel). Wire to App.tsx router. Use authorization component to restrict to accountant/admin. Use generated image frontend/public/assets/generated/financial-bg.dim_800x600.png as background. All text in Indonesian."
-        },
-        {
-          "path": "frontend/src/components/IncomeStatement.tsx",
-          "operation": "create",
-          "description": "Create Income Statement (Laporan Laba Rugi) component showing rental revenue breakdown, operating expenses, net income. Include period comparison. Print-friendly layout. Indonesian financial statement format and terminology."
-        },
-        {
-          "path": "frontend/src/components/BalanceSheet.tsx",
-          "operation": "create",
-          "description": "Create Balance Sheet (Neraca) component showing assets (inventory, AR), liabilities (AP), equity with standard accounting format. Print-friendly layout. Indonesian accounting format and terminology."
-        },
-        {
-          "path": "frontend/src/components/CashFlowStatement.tsx",
-          "operation": "create",
-          "description": "Create Cash Flow Statement (Laporan Arus Kas) component showing operating, investing, financing activities. Print-friendly layout. Indonesian accounting format."
-        },
-        {
-          "path": "frontend/src/components/TrialBalance.tsx",
-          "operation": "create",
-          "description": "Create Trial Balance (Neraca Saldo) component showing all accounts with debit/credit balances and totals verification. Indonesian labels and format."
-        },
-        {
-          "path": "frontend/src/hooks/useFinancialReports.ts",
-          "operation": "create",
-          "description": "Create React Query hooks for financial reports: useGetIncomeStatement, useGetBalanceSheet, useGetCashFlowStatement, useGetTrialBalance, useExportReportPDF, useExportReportExcel. Connect to backend financial reporting capabilities."
-        }
-      ]
-    },
-    {
-      "id": "REQ-10",
-      "summary": "Create asset depreciation tracking UI",
-      "acceptanceCriteria": [
-        "Asset registration with acquisition date and cost",
-        "Configurable useful life per asset category (e.g., 5 years for frames, 3 years for boards)",
-        "Automatic monthly depreciation calculation",
-        "Accumulated depreciation tracking",
-        "Book value reporting per asset",
-        "Depreciation schedule and depreciation expense posting to accounting"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/AssetDepreciation.tsx",
-          "operation": "create",
-          "description": "Create asset depreciation page showing asset list with acquisition cost, useful life, monthly depreciation, accumulated depreciation, book value. Include depreciation schedule viewer. Wire to App.tsx router. Use authorization component to restrict to accountant/admin. All text in Indonesian."
-        },
-        {
-          "path": "frontend/src/components/DepreciationSchedule.tsx",
-          "operation": "create",
-          "description": "Create depreciation schedule component showing month-by-month depreciation calculation table with running accumulated depreciation and book value. Indonesian column headers and formatting."
-        },
-        {
-          "path": "frontend/src/hooks/useDepreciation.ts",
-          "operation": "create",
-          "description": "Create React Query hooks for depreciation operations: useGetAssets, useGetDepreciationSchedule, useCalculateDepreciation, usePostDepreciationExpense. Connect to backend depreciation tracking capabilities."
-        }
-      ]
-    },
-    {
-      "id": "REQ-12",
-      "summary": "Create role-based access control UI with approval workflows",
-      "acceptanceCriteria": [
-        "Predefined roles with appropriate permission sets",
-        "Super Admin can manage users and assign roles",
-        "Operations staff can manage rentals but not view financial data",
-        "Accountants can access financial modules but not modify pricing",
-        "Multi-level approval workflow for high-risk transactions",
-        "Approval history tracking with approver identity and timestamp"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/UserManagement.tsx",
-          "operation": "create",
-          "description": "Create user management page showing user list with roles (Super Admin/Admin/Accountant/Operations Staff/Sales). Include role assignment UI using authorization component's assignCallerUserRole method. Wire to App.tsx router. Restrict to admin users only using authorization component. Verify the component's usage instructions before implementing. All text in Indonesian."
-        },
-        {
-          "path": "frontend/src/components/ApprovalWorkflow.tsx",
-          "operation": "create",
-          "description": "Create approval workflow component showing pending approvals for pricing changes, credit limit increases, manual journal entries. Include approve/reject buttons with comment field. Show approval history with approver names and timestamps. Indonesian labels."
-        },
-        {
-          "path": "frontend/src/components/RoleGuard.tsx",
-          "operation": "create",
-          "description": "Create role guard wrapper component that checks user role using authorization component's hasPermission/isAdmin checks and shows access denied screen for unauthorized access. Use with authorization component to enforce role-based UI restrictions. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/hooks/useAuthorization.ts",
-          "operation": "create",
-          "description": "Create React Query hooks for authorization: useGetCallerUserRole, useIsCallerAdmin, useAssignUserRole. Use backend methods from backend interface (getCallerUserRole, isCallerAdmin, assignCallerUserRole). Integrate with authorization component patterns."
-        }
-      ]
-    },
-    {
-      "id": "REQ-13",
-      "summary": "Create maintenance and repair tracking UI",
-      "acceptanceCriteria": [
-        "Scheduled maintenance tracking per equipment category",
-        "Repair work order creation with description and cost",
-        "Maintenance cost allocation to equipment asset",
-        "Equipment availability status based on maintenance schedule",
-        "Historical repair records per equipment item"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/MaintenanceTracking.tsx",
-          "operation": "create",
-          "description": "Create maintenance tracking page showing maintenance schedule calendar, repair work orders list, equipment availability status. Include create work order button. Wire to App.tsx router. Use authorization component. All text in Indonesian."
-        },
-        {
-          "path": "frontend/src/components/MaintenanceSchedule.tsx",
-          "operation": "create",
-          "description": "Create maintenance schedule component with calendar view showing scheduled maintenance per equipment category. Include availability status indicators. Indonesian labels and status text."
-        },
-        {
-          "path": "frontend/src/components/RepairWorkOrderForm.tsx",
-          "operation": "create",
-          "description": "Create repair work order form with equipment selection, description textarea, cost input, date picker, status dropdown. Include repair history display for selected equipment. Indonesian labels."
-        },
-        {
-          "path": "frontend/src/hooks/useMaintenance.ts",
-          "operation": "create",
-          "description": "Create React Query hooks for maintenance operations: useGetMaintenanceSchedule, useCreateWorkOrder, useGetWorkOrders, useGetRepairHistory, useUpdateEquipmentAvailability. Connect to backend maintenance tracking capabilities."
-        }
-      ]
-    },
-    {
-      "id": "REQ-14",
-      "summary": "Create financial dashboard with key metrics and visualizations",
-      "acceptanceCriteria": [
-        "Real-time KPI display on dashboard homepage",
-        "Revenue trend chart showing monthly performance",
-        "Aging receivables breakdown by customer",
-        "Equipment utilization percentage with drill-down capability",
-        "Tax obligation summary for current period",
-        "Profit margin analysis by rental project"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/Dashboard.tsx",
-          "operation": "create",
-          "description": "Create dashboard page showing KPI cards (total revenue, outstanding receivables, active rentals, equipment utilization, overdue payments, monthly tax obligations, profit margin) with graphical visualizations. Include revenue trend chart, aging receivables chart, utilization chart. Wire as main route in App.tsx router. Use authorization component to restrict to authenticated users. Display generated image frontend/public/assets/generated/scaffolding-hero.dim_1200x300.png in header section. All text in Indonesian."
-        },
-        {
-          "path": "frontend/src/components/KPICard.tsx",
-          "operation": "create",
-          "description": "Create KPI card component showing metric value, label, trend indicator, change percentage. Reusable for all dashboard metrics. Indonesian labels and number formatting."
-        },
-        {
-          "path": "frontend/src/components/RevenueTrendChart.tsx",
-          "operation": "create",
-          "description": "Create revenue trend chart component using chart library showing monthly revenue bars with trend line. Include period selector. Indonesian labels and tooltips."
-        },
-        {
-          "path": "frontend/src/components/AgingReceivablesChart.tsx",
-          "operation": "create",
-          "description": "Create aging receivables chart component showing breakdown by aging buckets (current, 30-60 days, 60-90 days, 90+ days) with customer drill-down. Indonesian labels."
-        },
-        {
-          "path": "frontend/src/hooks/useDashboard.ts",
-          "operation": "create",
-          "description": "Create React Query hooks for dashboard data: useGetKPIs, useGetRevenueTrend, useGetAgingReceivables, useGetEquipmentUtilization, useGetTaxObligations, useGetProfitMargin. Connect to backend dashboard capabilities."
-        }
-      ]
-    },
-    {
-      "id": "REQ-15",
-      "summary": "Create data validation and fraud prevention UI controls",
-      "acceptanceCriteria": [
-        "System prevents duplicate invoice numbers",
-        "Negative amounts blocked in all financial transactions",
-        "Rental dates validated against inventory availability",
-        "Backdating limited to configurable grace period (e.g., 3 days)",
-        "Daily inventory reconciliation with variance reporting",
-        "Rental quantity cannot exceed available inventory"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/utils/validation.ts",
-          "operation": "create",
-          "description": "Create validation utility functions for NPWP format validation, negative amount prevention, date range validation (no backdating beyond grace period), rental period overlap detection. Include Indonesian error messages. Use in all forms."
-        },
-        {
-          "path": "frontend/src/components/InventoryReconciliation.tsx",
-          "operation": "create",
-          "description": "Create inventory reconciliation component showing expected vs actual inventory counts, variance report, reconciliation status. Indonesian labels and variance indicators."
-        },
-        {
-          "path": "frontend/src/hooks/useValidation.ts",
-          "operation": "create",
-          "description": "Create React Query hooks for validation operations: useCheckDuplicateInvoice, useValidateRentalDates, useCheckInventoryAvailability, useReconcileInventory. Connect to backend validation capabilities."
-        }
-      ]
-    },
-    {
-      "id": "REQ-16",
-      "summary": "Implement desktop-optimized responsive UI design",
-      "acceptanceCriteria": [
-        "UI optimized for desktop screens (1366px and larger)",
-        "Keyboard shortcuts for common operations",
-        "Data tables with column sorting, filtering, and pagination",
-        "Inline editing capabilities for quick updates",
-        "Print stylesheets for invoices, tax forms, and financial reports",
-        "Form validation with real-time feedback",
-        "Loading states for all async operations"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/DataTable.tsx",
-          "operation": "create",
-          "description": "Create reusable data table component with column sorting, filtering, pagination, inline editing support. Optimized for desktop with large clickable elements. Indonesian table headers and controls."
-        },
-        {
-          "path": "frontend/src/hooks/useKeyboardShortcuts.ts",
-          "operation": "create",
-          "description": "Create keyboard shortcuts hook for common operations (Ctrl+S save, Ctrl+N new, Esc cancel, etc.). Register shortcuts globally and provide visual shortcut hints in UI."
-        },
-        {
-          "path": "frontend/src/index.css",
+          "path": "frontend/src/components/AuthGuard.tsx",
           "operation": "modify",
-          "description": "Add print media queries for invoice, tax form, and financial report print layouts. Add desktop-optimized styles with minimum 1366px viewport. Ensure large touch targets and keyboard navigation focus styles."
+          "description": "Remove the error state display from the AuthGuard component. The component currently shows 'Terjadi kesalahan!' when loginStatus is 'error', but this error state is being triggered inappropriately during initialization. Modify the component to only show loading state or the login card, removing the conditional rendering block that displays the error message. The login button should appear immediately for unauthenticated users without going through an error state first."
         },
         {
-          "path": "frontend/src/components/LoadingSpinner.tsx",
-          "operation": "create",
-          "description": "Create loading spinner component for async operation loading states. Include Indonesian loading text. Use consistently across all data fetching components."
+          "path": "frontend/src/hooks/useInternetIdentity.ts",
+          "operation": "modify",
+          "description": "Fix the authentication initialization logic to prevent false error states. The hook should properly handle the initialization sequence without triggering error states during normal startup. Review the error handling in the useEffect that initializes the auth client and ensure that initialization failures are distinguished from 'not yet initialized' states. Remove or refine any error state assignments that occur during the initial load sequence. Ensure the loginStatus transitions properly from 'idle' to 'success' for unauthenticated users without passing through 'error' state."
         }
       ]
     },
     {
-      "id": "REQ-17",
-      "summary": "Create user authentication system UI with Internet Identity",
+      "id": "REQ-23",
+      "summary": "Add proper error boundaries and fallback UI to gracefully handle authentication initialization failures without blocking the login interface",
       "acceptanceCriteria": [
-        "Users authenticate via Internet Identity",
-        "Session persistence across page refreshes",
-        "Automatic logout after 30 minutes of inactivity",
-        "Secure session token management",
-        "Login/logout audit trail"
+        "Authentication errors are logged to console for debugging but do not prevent the login button from appearing",
+        "If Internet Identity initialization fails, a clear error message is shown with a retry button",
+        "The application gracefully degrades and allows login attempts even if initial auth checks fail",
+        "Loading states are properly managed to prevent infinite loading or premature error displays"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/LoginButton.tsx",
-          "operation": "create",
-          "description": "Create login button component using authorization component's Internet Identity integration. Include login/logout toggle, loading state during authentication, clear cached data on logout. Verify the component's usage instructions before implementing. Indonesian button text."
-        },
-        {
-          "path": "frontend/src/components/ProfileSetupModal.tsx",
-          "operation": "create",
-          "description": "Create profile setup modal that appears on first login using authorization component's getCallerUserProfile/saveCallerUserProfile methods. Ask for user name and email. Prevent modal flash by checking profile fetch state. Verify the component's usage instructions before implementing. Indonesian labels and instructions."
-        },
-        {
-          "path": "frontend/src/hooks/useInactivityLogout.ts",
-          "operation": "create",
-          "description": "Create inactivity logout hook that tracks user activity and triggers automatic logout after 30 minutes of inactivity. Reset timer on mouse/keyboard events. Show warning before logout."
+          "path": "frontend/src/hooks/useInternetIdentity.ts",
+          "operation": "modify",
+          "description": "Enhance error handling to log errors to console without blocking the login interface. When Internet Identity initialization encounters errors, log them for debugging purposes but allow the authentication flow to continue. Add logic to gracefully degrade when initialization fails, ensuring that login attempts can still be made. Implement proper error recovery that allows users to retry authentication even after initialization failures."
         },
         {
           "path": "frontend/src/components/AuthGuard.tsx",
-          "operation": "create",
-          "description": "Create auth guard wrapper component that checks authentication status using authorization component and redirects to login if not authenticated. Show loading state during auth check. Verify the component's usage instructions before implementing."
+          "operation": "modify",
+          "description": "Modify the AuthGuard to show the login button even when initialization issues occur. Instead of blocking the UI with an error state, display the login card with an optional warning message (in Indonesian) if there were initialization issues. Add a retry mechanism that allows users to attempt login even if the initial auth check failed. Ensure loading states resolve in a reasonable timeframe and don't leave users in an infinite loading state."
         }
       ]
     },
     {
-      "id": "REQ-19",
-      "summary": "Implement Indonesian language throughout UI",
+      "id": "REQ-24",
+      "summary": "Improve the authentication initialization logic in useInternetIdentity.ts to handle edge cases where the auth client may not initialize properly on first load",
       "acceptanceCriteria": [
-        "All UI text displayed in Indonesian",
-        "Error messages in Indonesian",
-        "Report titles and column headers in Indonesian",
-        "Button labels and navigation menus in Indonesian",
-        "Form field labels in Indonesian"
+        "Authentication client initialization includes retry logic with exponential backoff",
+        "Race conditions between auth initialization and component mounting are eliminated",
+        "The hook properly differentiates between 'not yet initialized', 'initializing', 'ready', and 'error' states",
+        "Session restoration attempts do not block the login interface from appearing"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/i18n/id.ts",
-          "operation": "create",
-          "description": "Create Indonesian language translation file with all UI text, labels, buttons, error messages, validation messages, report headers, navigation menu items, form field labels, status text. Organize by module/feature."
-        },
-        {
-          "path": "frontend/src/utils/formatters.ts",
-          "operation": "create",
-          "description": "Create Indonesian number, currency (IDR), date, and percentage formatters. Include NPWP format display helper. Use Indonesian locale for all formatting."
-        },
-        {
-          "path": "frontend/src/App.tsx",
+          "path": "frontend/src/hooks/useInternetIdentity.ts",
           "operation": "modify",
-          "description": "Wire all created pages into router: Dashboard (default route), CustomerManagement, VendorManagement, InventoryManagement, RentalOrderManagement, PricingManagement, InvoiceManagement, TaxCompliance, Accounting, FinancialReports, AssetDepreciation, UserManagement, MaintenanceTracking. Wrap routes with AuthGuard and RoleGuard as appropriate. Use authorization component for authentication flow."
+          "description": "Implement robust initialization logic with retry mechanism using exponential backoff. Add a more granular state machine that tracks 'not yet initialized', 'initializing', 'ready', and 'error' states separately from the loginStatus. Eliminate race conditions by ensuring the auth client initialization completes before attempting to restore sessions. Add logic to handle edge cases where the Internet Identity service may not be immediately available. Ensure session restoration happens asynchronously and doesn't block the component from rendering the login interface. Add timeout handling for initialization attempts to prevent indefinite waiting states."
         },
         {
-          "path": "frontend/src/components/NavigationMenu.tsx",
-          "operation": "create",
-          "description": "Create navigation menu component with organized menu structure: Dashboard, Operations (Customers, Vendors, Inventory, Rentals), Finance (Invoices, Accounting, Reports, Depreciation), Tax (Tax Compliance), Maintenance, Settings (User Management). Include role-based menu item visibility using authorization component. Show generated image frontend/public/assets/generated/scaffolding-hero.dim_1200x300.png in header. All menu text in Indonesian."
-        },
-        {
-          "path": "frontend/src/components/Layout.tsx",
-          "operation": "create",
-          "description": "Create layout component with NavigationMenu, main content area, LoginButton in header, footer. Wrap all pages with this layout. Desktop-optimized structure. Indonesian UI text."
+          "path": "frontend/src/components/LoginButton.tsx",
+          "operation": "modify",
+          "description": "Update the LoginButton component to handle the improved initialization states from useInternetIdentity. Ensure the button remains functional even during initialization issues. Add appropriate disabled states only when actively logging in, not during initialization. Update the error handling for the 'User is already authenticated' case to work with the improved initialization logic."
         }
       ]
     }

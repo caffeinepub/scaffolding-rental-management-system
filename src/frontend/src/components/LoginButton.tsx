@@ -8,22 +8,15 @@ export default function LoginButton() {
   const queryClient = useQueryClient();
 
   const isAuthenticated = !!identity;
-  const disabled = loginStatus === 'logging-in';
+  const disabled = loginStatus === 'logging-in' || loginStatus === 'initializing';
 
   const handleAuth = async () => {
     if (isAuthenticated) {
       await clear();
       queryClient.clear();
     } else {
-      try {
-        await login();
-      } catch (error: any) {
-        console.error('Login error:', error);
-        if (error.message === 'User is already authenticated') {
-          await clear();
-          setTimeout(() => login(), 300);
-        }
-      }
+      // Simply call login - the hook now handles errors gracefully
+      login();
     }
   };
 
@@ -32,21 +25,27 @@ export default function LoginButton() {
       onClick={handleAuth}
       disabled={disabled}
       variant={isAuthenticated ? 'outline' : 'default'}
-      className="gap-2"
+      size="lg"
+      className="gap-2 min-w-[160px] min-h-[48px] text-base font-semibold"
     >
       {loginStatus === 'logging-in' ? (
         <>
-          <Loader2 className="w-4 h-4 animate-spin" />
-          Masuk...
+          <Loader2 className="w-5 h-5 animate-spin" />
+          Sedang masuk...
+        </>
+      ) : loginStatus === 'initializing' ? (
+        <>
+          <Loader2 className="w-5 h-5 animate-spin" />
+          Memuat...
         </>
       ) : isAuthenticated ? (
         <>
-          <LogOut className="w-4 h-4" />
+          <LogOut className="w-5 h-5" />
           Keluar
         </>
       ) : (
         <>
-          <LogIn className="w-4 h-4" />
+          <LogIn className="w-5 h-5" />
           Masuk
         </>
       )}

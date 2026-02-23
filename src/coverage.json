@@ -1,399 +1,60 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-23T02:50:06.107Z",
+  "generatedAt": "2026-02-23T04:27:41.905Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 19,
-    "implemented": 14,
+    "total": 3,
+    "implemented": 3,
     "items": [
       {
-        "id": "REQ-1",
-        "summary": "Create customer management module with CRUD operations storing company name, NPWP (tax ID), address, contact person, phone, email, and credit limit",
+        "id": "REQ-22",
+        "summary": "Fix the authentication error state in AuthGuard.tsx that displays 'Terjadi kesalahan!' (An error occurred!) message instead of the login button when the application loads",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/CustomerManagement.tsx",
-          "frontend/src/components/CustomerForm.tsx",
-          "frontend/src/hooks/useCustomers.ts"
+          "frontend/src/components/AuthGuard.tsx",
+          "frontend/src/hooks/useInternetIdentity.ts"
         ],
         "matchedFiles": [
-          "frontend/src/pages/CustomerManagement.tsx",
-          "frontend/src/components/CustomerForm.tsx"
-        ]
-      },
-      {
-        "id": "REQ-10",
-        "summary": "Create asset depreciation tracking system for scaffolding equipment using straight-line method with useful life configuration per asset category and monthly depreciation calculation",
-        "status": "missing",
-        "plannedFiles": [
-          "frontend/src/pages/AssetDepreciation.tsx",
-          "frontend/src/components/DepreciationSchedule.tsx",
-          "frontend/src/hooks/useDepreciation.ts"
-        ],
-        "matchedFiles": []
-      },
-      {
-        "id": "REQ-11",
-        "summary": "Create comprehensive audit trail system logging all data modifications including user, timestamp, action type (create/update/delete), old values, new values, and IP address",
-        "status": "unknown",
-        "plannedFiles": [],
-        "matchedFiles": []
-      },
-      {
-        "id": "REQ-12",
-        "summary": "Create role-based access control system with roles (Super Admin, Admin, Accountant, Operations Staff, Sales), granular permissions per module, and approval workflows for sensitive operations like pricing changes, credit limit increases, and manual journal entries",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/UserManagement.tsx",
-          "frontend/src/components/ApprovalWorkflow.tsx",
-          "frontend/src/components/RoleGuard.tsx",
-          "frontend/src/hooks/useAuthorization.ts"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/UserManagement.tsx",
-          "frontend/src/hooks/useAuthorization.ts"
-        ]
-      },
-      {
-        "id": "REQ-13",
-        "summary": "Create maintenance and repair tracking module for scaffolding equipment with maintenance schedules, repair history, cost tracking, and equipment downtime recording",
-        "status": "missing",
-        "plannedFiles": [
-          "frontend/src/pages/MaintenanceTracking.tsx",
-          "frontend/src/components/MaintenanceSchedule.tsx",
-          "frontend/src/components/RepairWorkOrderForm.tsx",
-          "frontend/src/hooks/useMaintenance.ts"
-        ],
-        "matchedFiles": []
-      },
-      {
-        "id": "REQ-14",
-        "summary": "Create financial dashboard with key metrics including total revenue, outstanding receivables, active rentals, equipment utilization rate, overdue payments, monthly tax obligations, and profit margin with graphical visualizations",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/Dashboard.tsx",
-          "frontend/src/components/KPICard.tsx",
-          "frontend/src/components/RevenueTrendChart.tsx",
-          "frontend/src/components/AgingReceivablesChart.tsx",
-          "frontend/src/hooks/useDashboard.ts"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/Dashboard.tsx"
-        ]
-      },
-      {
-        "id": "REQ-15",
-        "summary": "Create data validation and fraud prevention controls including duplicate invoice checking, negative amount prevention, date range validation (no backdating beyond allowed period), rental period overlap detection, and inventory quantity reconciliation",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/utils/validation.ts",
-          "frontend/src/components/InventoryReconciliation.tsx",
-          "frontend/src/hooks/useValidation.ts"
-        ],
-        "matchedFiles": [
-          "frontend/src/utils/validation.ts"
-        ]
-      },
-      {
-        "id": "REQ-16",
-        "summary": "Implement desktop-optimized responsive UI design with large clickable elements, keyboard navigation support, data tables with sorting and filtering, form validation with clear error messages, and print-friendly layouts for invoices and reports",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/DataTable.tsx",
-          "frontend/src/hooks/useKeyboardShortcuts.ts",
-          "frontend/src/index.css",
-          "frontend/src/components/LoadingSpinner.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/DataTable.tsx",
-          "frontend/src/index.css",
-          "frontend/src/components/LoadingSpinner.tsx"
-        ]
-      },
-      {
-        "id": "REQ-17",
-        "summary": "Create user authentication system using Internet Identity for secure login with user session management and automatic logout after inactivity",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/LoginButton.tsx",
-          "frontend/src/components/ProfileSetupModal.tsx",
-          "frontend/src/hooks/useInactivityLogout.ts",
-          "frontend/src/components/AuthGuard.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/LoginButton.tsx",
-          "frontend/src/components/ProfileSetupModal.tsx",
           "frontend/src/components/AuthGuard.tsx"
         ]
       },
       {
-        "id": "REQ-18",
-        "summary": "Create customer credit limit enforcement system that blocks new rental orders when customer exceeds credit limit based on outstanding invoices and pending orders",
-        "status": "unknown",
-        "plannedFiles": [],
-        "matchedFiles": []
-      },
-      {
-        "id": "REQ-19",
-        "summary": "All user-facing text, labels, buttons, messages, and report headers must be in Indonesian (Bahasa Indonesia) while maintaining English for technical code and variable names",
+        "id": "REQ-23",
+        "summary": "Add proper error boundaries and fallback UI to gracefully handle authentication initialization failures without blocking the login interface",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/i18n/id.ts",
-          "frontend/src/utils/formatters.ts",
-          "frontend/src/App.tsx",
-          "frontend/src/components/NavigationMenu.tsx",
-          "frontend/src/components/Layout.tsx"
+          "frontend/src/hooks/useInternetIdentity.ts",
+          "frontend/src/components/AuthGuard.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/utils/formatters.ts",
-          "frontend/src/App.tsx",
-          "frontend/src/components/NavigationMenu.tsx",
-          "frontend/src/components/Layout.tsx"
+          "frontend/src/components/AuthGuard.tsx"
         ]
       },
       {
-        "id": "REQ-2",
-        "summary": "Create vendor management module for scaffolding suppliers with company details, NPWP, bank account information, and payment terms",
+        "id": "REQ-24",
+        "summary": "Improve the authentication initialization logic in useInternetIdentity.ts to handle edge cases where the auth client may not initialize properly on first load",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/VendorManagement.tsx",
-          "frontend/src/components/VendorForm.tsx",
-          "frontend/src/hooks/useVendors.ts"
+          "frontend/src/hooks/useInternetIdentity.ts",
+          "frontend/src/components/LoginButton.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/pages/VendorManagement.tsx",
-          "frontend/src/components/VendorForm.tsx"
-        ]
-      },
-      {
-        "id": "REQ-3",
-        "summary": "Create scaffolding inventory management system tracking item types (frames, boards, pipes, clamps, accessories), quantities, condition status (new, good, fair, damaged), location, and acquisition cost",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/InventoryManagement.tsx",
-          "frontend/src/components/InventoryForm.tsx",
-          "frontend/src/hooks/useInventory.ts"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/InventoryManagement.tsx",
-          "frontend/src/components/InventoryForm.tsx"
-        ]
-      },
-      {
-        "id": "REQ-4",
-        "summary": "Create rental order management system with booking, quotation approval, delivery scheduling, active rental tracking, and return processing with condition inspection",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/RentalOrderManagement.tsx",
-          "frontend/src/components/RentalOrderForm.tsx",
-          "frontend/src/hooks/useRentalOrders.ts"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/RentalOrderManagement.tsx",
-          "frontend/src/components/RentalOrderForm.tsx"
-        ]
-      },
-      {
-        "id": "REQ-5",
-        "summary": "Create pricing and quotation system with rate cards for daily, weekly, and monthly rental rates per item type, volume discounts, and project-based custom pricing",
-        "status": "missing",
-        "plannedFiles": [
-          "frontend/src/pages/PricingManagement.tsx",
-          "frontend/src/components/QuotationGenerator.tsx",
-          "frontend/src/hooks/usePricing.ts"
-        ],
-        "matchedFiles": []
-      },
-      {
-        "id": "REQ-6",
-        "summary": "Create invoicing system with automatic invoice generation from rental orders, payment term tracking, partial payment support, payment status monitoring, and late payment alerts",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/InvoiceManagement.tsx",
-          "frontend/src/components/InvoiceForm.tsx",
-          "frontend/src/components/PaymentRecorder.tsx",
-          "frontend/src/hooks/useInvoices.ts"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/InvoiceManagement.tsx"
-        ]
-      },
-      {
-        "id": "REQ-7",
-        "summary": "Create Indonesian tax compliance module handling PPN (11% VAT), PPh 23 (2% withholding tax), tax invoice (faktur pajak) generation with sequential numbering, and monthly tax report preparation",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/TaxCompliance.tsx",
-          "frontend/src/components/TaxInvoiceGenerator.tsx",
-          "frontend/src/components/SPTMasaPPNReport.tsx",
-          "frontend/src/hooks/useTaxCompliance.ts"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/TaxCompliance.tsx"
-        ]
-      },
-      {
-        "id": "REQ-8",
-        "summary": "Create double-entry accounting system with chart of accounts for rental business, journal entry recording, general ledger, accounts receivable, accounts payable, and cash/bank management",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/Accounting.tsx",
-          "frontend/src/components/ChartOfAccounts.tsx",
-          "frontend/src/components/JournalEntryForm.tsx",
-          "frontend/src/components/GeneralLedger.tsx",
-          "frontend/src/hooks/useAccounting.ts"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/Accounting.tsx"
-        ]
-      },
-      {
-        "id": "REQ-9",
-        "summary": "Create financial reporting module generating Income Statement (Profit & Loss), Balance Sheet, Cash Flow Statement, Trial Balance, and Indonesian tax reports formatted for submission",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/FinancialReports.tsx",
-          "frontend/src/components/IncomeStatement.tsx",
-          "frontend/src/components/BalanceSheet.tsx",
-          "frontend/src/components/CashFlowStatement.tsx",
-          "frontend/src/components/TrialBalance.tsx",
-          "frontend/src/hooks/useFinancialReports.ts"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/FinancialReports.tsx"
+          "frontend/src/components/LoginButton.tsx"
         ]
       }
     ]
   },
   "changedFiles": [
-    "backend/authorization/MixinAuthorization.mo",
-    "backend/authorization/access-control.mo",
-    "backend/blob-storage/Mixin.mo",
-    "backend/blob-storage/Storage.mo",
-    "backend/main.mo",
     "build-request.json",
-    "build-template/Dockerfile",
-    "build-template/LICENSE",
-    "build-template/README.md",
-    "build-template/deploy.sh",
-    "build-template/icp.yaml",
-    "build-template/package.json",
-    "build-template/pnpm-lock.yaml",
-    "build-template/pnpm-workspace.yaml",
-    "build-template/scripts/prune-unused-images.js",
-    "build-template/scripts/resize-images.js",
-    "build-template/src/backend/canister.yaml",
-    "build-template/src/backend/system-idl/aaaaa-aa.did",
-    "build-template/src/frontend/canister.yaml",
-    "build-template/src/frontend/components.json",
-    "build-template/src/frontend/env.json",
-    "build-template/src/frontend/eslint-rules/no-bigint-in-query-keys.js",
-    "build-template/src/frontend/eslint-rules/require-internet-identity-provider.js",
-    "build-template/src/frontend/eslint.config.js",
-    "build-template/src/frontend/package.json",
-    "build-template/src/frontend/postcss.config.js",
-    "build-template/src/frontend/src/components/ui/accordion.tsx",
-    "build-template/src/frontend/src/components/ui/alert-dialog.tsx",
-    "build-template/src/frontend/src/components/ui/alert.tsx",
-    "build-template/src/frontend/src/components/ui/aspect-ratio.tsx",
-    "build-template/src/frontend/src/components/ui/avatar.tsx",
-    "build-template/src/frontend/src/components/ui/badge.tsx",
-    "build-template/src/frontend/src/components/ui/breadcrumb.tsx",
-    "build-template/src/frontend/src/components/ui/button.tsx",
-    "build-template/src/frontend/src/components/ui/calendar.tsx",
-    "build-template/src/frontend/src/components/ui/card.tsx",
-    "build-template/src/frontend/src/components/ui/carousel.tsx",
-    "build-template/src/frontend/src/components/ui/chart.tsx",
-    "build-template/src/frontend/src/components/ui/checkbox.tsx",
-    "build-template/src/frontend/src/components/ui/collapsible.tsx",
-    "build-template/src/frontend/src/components/ui/command.tsx",
-    "build-template/src/frontend/src/components/ui/context-menu.tsx",
-    "build-template/src/frontend/src/components/ui/dialog.tsx",
-    "build-template/src/frontend/src/components/ui/drawer.tsx",
-    "build-template/src/frontend/src/components/ui/dropdown-menu.tsx",
-    "build-template/src/frontend/src/components/ui/form.tsx",
-    "build-template/src/frontend/src/components/ui/hover-card.tsx",
-    "build-template/src/frontend/src/components/ui/input-otp.tsx",
-    "build-template/src/frontend/src/components/ui/input.tsx",
-    "build-template/src/frontend/src/components/ui/label.tsx",
-    "build-template/src/frontend/src/components/ui/menubar.tsx",
-    "build-template/src/frontend/src/components/ui/navigation-menu.tsx",
-    "build-template/src/frontend/src/components/ui/pagination.tsx",
-    "build-template/src/frontend/src/components/ui/popover.tsx",
-    "build-template/src/frontend/src/components/ui/progress.tsx",
-    "build-template/src/frontend/src/components/ui/radio-group.tsx",
-    "build-template/src/frontend/src/components/ui/resizable.tsx",
-    "build-template/src/frontend/src/components/ui/scroll-area.tsx",
-    "build-template/src/frontend/src/components/ui/select.tsx",
-    "build-template/src/frontend/src/components/ui/separator.tsx",
-    "build-template/src/frontend/src/components/ui/sheet.tsx",
-    "build-template/src/frontend/src/components/ui/sidebar.tsx",
-    "build-template/src/frontend/src/components/ui/skeleton.tsx",
-    "build-template/src/frontend/src/components/ui/slider.tsx",
-    "build-template/src/frontend/src/components/ui/sonner.tsx",
-    "build-template/src/frontend/src/components/ui/switch.tsx",
-    "build-template/src/frontend/src/components/ui/table.tsx",
-    "build-template/src/frontend/src/components/ui/tabs.tsx",
-    "build-template/src/frontend/src/components/ui/textarea.tsx",
-    "build-template/src/frontend/src/components/ui/toggle-group.tsx",
-    "build-template/src/frontend/src/components/ui/toggle.tsx",
-    "build-template/src/frontend/src/components/ui/tooltip.tsx",
-    "build-template/src/frontend/src/hooks/use-mobile.tsx",
-    "build-template/src/frontend/src/lib/utils.ts",
-    "build-template/src/frontend/tsconfig.json",
-    "build-template/src/frontend/vite.config.js",
-    "build-template/tsconfig.json",
-    "caffeine.lock.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/index.css",
-    "frontend/index.html",
-    "frontend/public/assets/generated/equipment-icons.dim_400x80.png",
-    "frontend/public/assets/generated/financial-bg.dim_800x600.png",
-    "frontend/public/assets/generated/scaffolding-hero.dim_1200x300.png",
-    "frontend/src/App.tsx",
-    "frontend/src/backend.d.ts",
-    "frontend/src/backend.ts",
     "frontend/src/components/AuthGuard.tsx",
-    "frontend/src/components/CustomerForm.tsx",
-    "frontend/src/components/DataTable.tsx",
-    "frontend/src/components/InventoryForm.tsx",
-    "frontend/src/components/Layout.tsx",
-    "frontend/src/components/LoadingSpinner.tsx",
     "frontend/src/components/LoginButton.tsx",
-    "frontend/src/components/NavigationMenu.tsx",
-    "frontend/src/components/ProfileSetupModal.tsx",
-    "frontend/src/components/RentalOrderForm.tsx",
-    "frontend/src/components/VendorForm.tsx",
-    "frontend/src/config.ts",
-    "frontend/src/declarations/backend.did.d.ts",
-    "frontend/src/declarations/backend.did.js",
-    "frontend/src/hooks/useActor.ts",
-    "frontend/src/hooks/useAuthorization.ts",
-    "frontend/src/hooks/useInternetIdentity.ts",
-    "frontend/src/hooks/useQueries.ts",
-    "frontend/src/index.css",
-    "frontend/src/main.tsx",
-    "frontend/src/pages/Accounting.tsx",
-    "frontend/src/pages/CustomerManagement.tsx",
-    "frontend/src/pages/Dashboard.tsx",
-    "frontend/src/pages/FinancialReports.tsx",
-    "frontend/src/pages/InventoryManagement.tsx",
-    "frontend/src/pages/InvoiceManagement.tsx",
-    "frontend/src/pages/RentalOrderManagement.tsx",
-    "frontend/src/pages/TaxCompliance.tsx",
-    "frontend/src/pages/UserManagement.tsx",
-    "frontend/src/pages/VendorManagement.tsx",
-    "frontend/src/ui-summary.json",
-    "frontend/src/utils/StorageClient.ts",
-    "frontend/src/utils/formatters.ts",
-    "frontend/src/utils/urlParams.ts",
-    "frontend/src/utils/validation.ts",
-    "frontend/tailwind.config.js",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",
